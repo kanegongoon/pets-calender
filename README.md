@@ -1,24 +1,57 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column                 | Type     | Options                   |
+| ---------------------- | -------- | ------------------------- |
+| email                  | string   | null: false, unique: true |
+| encrypted_password     | string   | null: false               |
+| nickname               | string   | null: false               |
 
-* Ruby version
+### Association
+ - has_many :pet_details
+ - belongs_to :calender
 
-* System dependencies
 
-* Configuration
+## calenders テーブル
+| Column          | Type       | Options     |
+| --------------- | ---------- | ----------- |
+| title           | string     | null: false |
+| context         | text       | null: false |
+| start_time      | datetime   | null: false |
 
-* Database creation
+### Association
+ - belongs_to :user
+ - has_many :pet_details
 
-* Database initialization
 
-* How to run the test suite
+## pet_informations テーブル
+| Column         | Type      | Options     |
+| -------------- | --------- | ----------- |
+| name           | string    | null: false |
+| sex_id         | integer   | null: false |
+| kinds          | string    |
+| color_id       | integer   | null: false |
+| birthday       | date      | null: false |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+ - has_one :pet_detail
 
-* Deployment instructions
 
-* ...
+## pet_details テーブル
+
+| Column          | Type       | Options     |
+| --------------- | ---------- | ----------- |
+| rice            | string     | null: false |
+| medicine        | string     |
+| vaccination_id  | integer    | null: false |
+| weight          | integer    | null: false |
+| motion_id       | integer    | null: false |
+| snack           | string     |
+| remarks         | text       |
+| pet_information | references | null: false, foreign_key: true |
+
+### Association
+ - belongs_to :user
+ - belongs_to :calender
+ - belongs_to :pet_information
