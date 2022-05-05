@@ -10,15 +10,15 @@
 
 ### Association
  - has_many :pet_details
- - belongs_to :calender
+ - belongs_to :calendar
 
 
-## calenders テーブル
+## calendars テーブル
 | Column          | Type       | Options     |
 | --------------- | ---------- | ----------- |
 | title           | string     | null: false |
-| context         | text       | null: false |
-| start_time      | datetime   | null: false |
+| content         | text       | null: false |
+| start_time      | date       | null: false |
 
 ### Association
  - belongs_to :user
@@ -53,5 +53,5 @@
 
 ### Association
  - belongs_to :user
- - belongs_to :calender
+ - belongs_to :calendar
  - belongs_to :pet_information

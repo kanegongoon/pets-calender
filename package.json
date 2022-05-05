@@ -1,5 +1,5 @@
 {
-  "name": "pets_calender",
+  "name":"pets_calendar",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0-alpha",
