@@ -22,6 +22,7 @@
 
 ### Association
  - belongs_to :user
+ - has_many :pet_informations
  - has_many :pet_details
 
 
@@ -29,13 +30,16 @@
 | Column         | Type      | Options     |
 | -------------- | --------- | ----------- |
 | name           | string    | null: false |
-| sex_id         | integer   | null: false |
+| sex            | string    | null: false |
 | kinds          | string    |
-| color_id       | integer   | null: false |
+| color          | string    | null: false |
 | birthday       | date      | null: false |
 
+
 ### Association
+ - belongs_to :calender
  - has_one :pet_detail
+
 
 
 ## pet_details テーブル
@@ -44,9 +48,9 @@
 | --------------- | ---------- | ----------- |
 | rice            | string     | null: false |
 | medicine        | string     |
-| vaccination_id  | integer    | null: false |
+| vaccination     | string     | null: false |
 | weight          | integer    | null: false |
-| motion_id       | integer    | null: false |
+| motion          | string     | null: false |
 | snack           | string     |
 | remarks         | text       |
 | pet_information | references | null: false, foreign_key: true |
